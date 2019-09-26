@@ -8,7 +8,7 @@ import docker, json , re
 client = docker.from_env()
 
 def index(request):
-    list = client.containers.list()
+    list = client.containers.list(all=True)
     result = []
     for c in list:
         foo = { 'id' : c.short_id , 'name' : c.name , 'status' : c.status , 'image' : c.image.tags , 'labels' : c.labels }
