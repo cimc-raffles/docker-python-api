@@ -45,7 +45,7 @@ def logs(request,id):
         foo = line.decode()
         matcher = re.match(r'(\d{4}-\d{1,2}-\d{1,2}T\d{1,2}:\d{1,2}:\d{1,2}.\d+Z)' , foo)
         time = matcher.group()
-        message = foo.replace( time , '' , 1).strip()
+        message = foo.replace( time , '' , 1)
         result.append( {'timestamp' : time , 'message': message})
     return JsonResponse( result, safe=False)
 
